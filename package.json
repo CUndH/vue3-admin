@@ -1,0 +1,61 @@
+{
+  "name": "vue3-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "ant-design-vue": "^2.0.0-rc.1",
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "@vue/cli-plugin-babel": "~4.5.9",
+    "@vue/cli-plugin-eslint": "~4.5.9",
+    "@vue/cli-plugin-router": "~4.5.9",
+    "@vue/cli-plugin-typescript": "~4.5.9",
+    "@vue/cli-service": "~4.5.9",
+    "@vue/compiler-sfc": "^3.0.2",
+    "@vue/eslint-config-airbnb": "^5.1.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "eslint": "^7.14.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.1.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
+    "stylelint-webpack-plugin": "^2.1.1",
+    "typescript": "~4.1.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "@vue/airbnb",
+      "@vue/typescript/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
