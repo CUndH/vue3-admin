@@ -1,0 +1,16 @@
+/** abstracts **/
+
+@import 'abstracts/variables';
+
+/** vendors **/
+
+/** base **/
+
+@import 'base/base';
+
+
+#app,
+.ant-layout {
+  width: 100%;
+  height: 100%;
+}
