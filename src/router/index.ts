@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { constantRoutes } from './constant.route';
+import constantRoutes from './constant.route';
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -8,4 +8,4 @@ const router = createRouter({
   ],
 });
 
-export { router };
+export default router;

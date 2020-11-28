@@ -1,4 +1,4 @@
-export const constantRoutes: Array<RouteConfig> = [
+const constantRoutes: Array<RouteConfig> = [
   {
     name: 'Index',
     path: '/',
@@ -8,3 +8,5 @@ export const constantRoutes: Array<RouteConfig> = [
     },
   },
 ];
+
+export default constantRoutes;
