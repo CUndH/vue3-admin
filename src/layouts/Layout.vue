@@ -1,12 +1,46 @@
 <template>
-  <a-layout class="layout"></a-layout>
+  <a-layout class="layout">
+    <a-layout-sider v-model:collapsed="collapsed"
+      collapsed
+      class="sider">
+      <h1 class="m-y-0 app-name">ADMIN</h1>
+      <div class="side-menu-wrapper">
+        <SiderMenu :menus="menus"
+          :collapsed="collapsed" />
+      </div>
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header class="header">header</a-layout-header>
+    </a-layout>
+    <a-layout-content class="content">
+      <router-view />
+    </a-layout-content>
+  </a-layout>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
+// eslint-disable-next-line import/no-cycle
+import { menuService } from '@/services/Menu.service';
+import SiderMenu from './SiderMenu.vue';
 
 export default defineComponent({
   name: 'Layout',
+  components: {
+    SiderMenu,
+  },
+  setup() {
+    const collapsed = ref(false);
+
+    onMounted(() => {
+      console.log(menuService.menus);
+    });
+
+    return {
+      collapsed,
+      menus: menuService.menus,
+    };
+  },
 });
 </script>
 

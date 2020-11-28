@@ -9,4 +9,11 @@ declare global {
     children?: RouteConfig[];
     meta: RouteMeta;
   };
+
+  interface Menu {
+    name: string;
+    title: string;
+    meta: RouteMeta;
+    children?: Menu[];
+  }
 }
