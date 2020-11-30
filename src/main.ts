@@ -4,6 +4,7 @@ import App from './App.vue';
 import router from './router/index';
 import store from './store';
 import '@/styles/main.scss';
+import 'ant-design-vue/dist/antd.css';
 
 createApp(App).use(store).use(Antd).use(router)
   .mount('#app');

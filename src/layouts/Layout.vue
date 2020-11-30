@@ -11,10 +11,10 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-header class="header">header</a-layout-header>
+      <a-layout-content class="content">
+        <router-view />
+      </a-layout-content>
     </a-layout>
-    <a-layout-content class="content">
-      <router-view />
-    </a-layout-content>
   </a-layout>
 </template>
 
@@ -50,7 +50,6 @@ export default defineComponent({
 
   .sider {
     min-height: 100vh;
-
     .app-name {
       background-color: rgb(2, 29, 60);
       max-height: 64px;

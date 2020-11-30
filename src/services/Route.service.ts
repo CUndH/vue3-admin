@@ -2,6 +2,7 @@ import { Singleton } from '@/utils/singleton';
 import { ref, Ref } from 'vue';
 import { RouteLocationNormalized, Router } from 'vue-router';
 import { asyncRoutes } from '@/router/routes';
+import { userService } from './User.service';
 
 @Singleton
 export class RouteService {
@@ -25,9 +26,7 @@ export class RouteService {
         : { name: 'Result', params: { status: '404' } };
       return Promise.resolve(route);
     }
-    return new Promise((resolve) => {
-      resolve(1);
-    }).then(() => {
+    return userService.getUserInfo().then(() => {
       this.routes.value = asyncRoutes;
       const routes = this.routes.value;
       routes.forEach((route) => {
