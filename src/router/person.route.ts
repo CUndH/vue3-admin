@@ -12,6 +12,7 @@ const personRoute: RouteConfig = {
       path: 'list',
       meta: {
         title: '人员列表',
+        permissions: ['person:view'],
       },
       component: () => import('@/views/person/list.vue'),
     },
