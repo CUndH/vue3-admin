@@ -16,9 +16,30 @@ declare global {
     message?: string;
   }
 
+  interface ResponseError {
+    [key as string]: any;
+    msg: string;
+    code: number;
+  }
+
+  interface TableResponse<T> {
+    page: number;
+    size: number;
+    total: number;
+    content: T[];
+  }
+  interface PageQuery {
+    page?: number;
+    size?: number;
+  }
+
   type HttpResponse<T = any> = AxiosResponse<Response<T>>;
 
   type HttpResponseP<T = any> = Promise<HttpResponse<T>>;
+
+  type HttpTableResponse<T = any> = HttpResponse<TableResponse<T>>;
+
+  type HttpTableResponseP<T = any> = Promise<HttpTableResponse<T>>;
 
   interface Menu {
     name: string;

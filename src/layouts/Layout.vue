@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 // eslint-disable-next-line import/no-cycle
 import { menuService } from '@/services/Menu.service';
 import SiderMenu from './SiderMenu.vue';
@@ -31,10 +31,6 @@ export default defineComponent({
   },
   setup() {
     const collapsed = ref(false);
-
-    onMounted(() => {
-      console.log(menuService.menus);
-    });
 
     return {
       collapsed,
