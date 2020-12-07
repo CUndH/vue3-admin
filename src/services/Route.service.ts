@@ -97,6 +97,48 @@ export class RouteService {
       return { name: 'Result', params: { status: '404' } };
     });
   }
+
+  findFirstRoute(routes: RouteConfig[]): RouteConfig {
+    const routesList: RouteConfig[] = [];
+    for (const item of routes) {
+      if (!item.meta.abstract) {
+        routesList.push(item);
+      }
+
+      if (item?.children?.length) {
+        routesList.push(this.findFirstRoute(item.children as RouteConfig[]));
+      }
+    }
+    return routesList.find((item) => !item.meta.hiddenMenu)
+      || routesList[0]
+      || { name: 'Result', params: { status: '403' } } as unknown as RouteConfig;
+  }
+
+  getFirstRoute(
+    router?: Router,
+    parentRouteName?: string,
+  ) {
+    // 如果有传入父路由
+    if (router && parentRouteName) {
+      const routes = router.resolve({ name: parentRouteName }).matched;
+      if (routes.length !== 0) {
+        const route = routes[routes.length - 1] as unknown as RouteConfig;
+        if (!route.meta.abstract) {
+          return route;
+        }
+        const firstRoute = this.findFirstRoute(route.children || []);
+        return firstRoute;
+      }
+    }
+
+    const authRoutes = this.routes.value;
+    if (authRoutes.length) {
+      const firstRoute = this.findFirstRoute(authRoutes);
+      return firstRoute;
+    }
+
+    return { name: 'Result', params: { status: '403' } } as unknown as RouteConfig;
+  }
 }
 
 export const routeService = RouteService.getInstance();
